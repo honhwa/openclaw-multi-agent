@@ -435,14 +435,14 @@ Write important decisions and agreements into `memory/YYYY-MM-DD.md`. Do not rel
 
 ## Communication Specifications
 - Receive tasks: Listen to `agent:<myId>:manager`.
-- **MANDATORY after task completion**: Send result via `sessions_send` to `agent:manager:<myId>`.
+- **MANDATORY after task completion**: Send result via `sessions_send` to `agent:manager:main`.
 - Never contact the Main Agent or other Workers directly.
 
 ## ⚠️ Iron Rule: Must Report After Completion
 After completing any task, you MUST use `sessions_send` to send the result to Manager:
 ```
 sessions_send({
-  sessionKey: "agent:manager:<myId>",
+  sessionKey: "agent:manager:main",
   message: "## Task Completed\n\n[Result details]\n\n### What was done\n[Summary]\n\n### What is still unfinished\n[If any]",
   timeoutSeconds: 0
 })
@@ -529,7 +529,7 @@ For each agent created, read its SOUL.md and AGENTS.md and verify the following 
 
 | # | Check Item | What to Look For |
 |---|---|---|
-| 1 | Session key is correct | `agent:<myId>:manager` for reporting, `agent:manager:<myId>` for receiving — not reversed |
+| 1 | Session key is correct | `agent:<myId>:manager` for reporting, `agent:manager:main` for receiving — not reversed |
 | 2 | No direct Main contact | Does NOT instruct to contact Main Agent directly |
 | 3 | Memory instruction present | Mentions writing to `memory/YYYY-MM-DD.md` |
 
@@ -680,12 +680,18 @@ If adjustments are needed, let me know what to change.
 
 ### Session Key Specifications
 
-| Direction | Session Key |
-|------|-------------|
-| Main → Manager (Assign task) | `agent:manager:main` |
-| Manager → Main (Report) | `agent:main:manager` |
-| Manager → Worker (Assign work) | `agent:<workerId>:manager` |
-| Worker → Manager (Report) | `agent:manager:<myId>` |
+**Format: `agent:<owner>:<creator>`**
+- `<owner>` = who is listening (receiver)
+- `<creator>` = who created/bound this session (sender's context)
+
+| Direction | Session Key | Explanation |
+|------|-------------|-------------|
+| Main → Manager (Assign task) | `agent:manager:main` | Manager listens, created by Main |
+| Manager → Main (Report) | `agent:main:manager` | Main listens, created by Manager |
+| Manager → Worker (Assign work) | `agent:<workerId>:manager` | Worker listens, created by Manager |
+| Worker → Manager (Report) | `agent:manager:main` | Manager listens; Workers are under Main context, same key as Main→Manager |
+
+**Key point**: Worker → Manager and Main → Manager use the **same** session key (`agent:manager:main`). Using `agent:manager:<workerId>` is **wrong**—that session doesn't exist and Manager will never receive it.
 
 **The Main Agent only uses the first two and never uses Workers' session keys directly.**
 
