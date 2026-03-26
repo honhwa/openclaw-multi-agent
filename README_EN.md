@@ -117,8 +117,10 @@ multi-agent-orchestration/
 ├── templates/
 │   ├── interview_questions.md        ← Structured question bank
 │   ├── team_design_template.md       ← Team design document format
-│   ├── manager_soul_template.md      ← Manager Agent SOUL.md template
-│   └── manager_agents_template.md   ← Manager Agent AGENTS.md template
+│   ├── manager_soul_template.md      ← Manager Agent SOUL.md template (Iron Rule included)
+│   ├── manager_agents_template.md   ← Manager Agent AGENTS.md template (Iron Rule included)
+│   ├── worker_soul_template.md       ← Worker Agent SOUL.md template (Iron Rule included)
+│   └── worker_agents_template.md    ← Worker Agent AGENTS.md template (correct session keys)
 ├── examples/
 │   ├── setup_example.md             ← End-to-end walkthrough
 │   └── wisdom/                      ← Example Wisdom files

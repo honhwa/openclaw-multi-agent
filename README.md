@@ -118,8 +118,10 @@ multi-agent-orchestration/
 ├── templates/
 │   ├── interview_questions.md        ← 结构化问题库
 │   ├── team_design_template.md       ← 团队设计文档格式
-│   ├── manager_soul_template.md      ← Manager Agent SOUL.md 模板
-│   └── manager_agents_template.md   ← Manager Agent AGENTS.md 模板
+│   ├── manager_soul_template.md      ← Manager Agent SOUL.md 模板（含汇报铁律）
+│   ├── manager_agents_template.md   ← Manager Agent AGENTS.md 模板（含转发铁律）
+│   ├── worker_soul_template.md       ← Worker Agent SOUL.md 模板（含汇报铁律）
+│   └── worker_agents_template.md    ← Worker Agent AGENTS.md 模板（含正确 session key）
 ├── examples/
 │   ├── setup_example.md             ← 端到端演练
 │   └── wisdom/                      ← Wisdom 文件示例
