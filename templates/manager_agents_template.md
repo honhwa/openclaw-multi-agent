@@ -136,11 +136,22 @@ Worker 完成任务后，必须经过质量关卡:
 
 ### 质量关卡执行
 
+> ⚠️ **铁律：质量门通过后必须用 sessions_send 转发给 Main Agent，绝不只执行质量检查就结束！**
+
 ```javascript
-// 验收通过时
+// 验收通过时 → 立即转发给 Main Agent
 sessions_send(
-  sessionKey="agent:<worker_id>:manager",
-  message=`Task {{task_id}} approved. Quality gate passed.`,
+  sessionKey="agent:main:manager",
+  message=`📊 任务状态汇报
+
+## 任务完成
+{{task_summary}}
+
+### 质量门状态
+自检 ✅ {{review_status}}
+
+### 整体进度
+{{progress_percentage}}%`,
   timeoutSeconds=0
 )
 

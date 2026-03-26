@@ -266,6 +266,22 @@ bash scripts/setup_agent.sh \
 openclaw gateway restart
 ```
 
+**初始化 Wisdom 目录（推荐）：**
+
+```bash
+# 创建 wisdom 目录并复制样例文件
+mkdir -p ~/.openclaw/workspace/memory/wisdom
+SKILL_DIR="$(openclaw skills info openclaw-multi-agents --json 2>/dev/null | grep path | head -1 | sed 's/.*: "\(.*\)".*/\1/' || find ~/.openclaw/workspace/skills -name "SKILL.md" | grep multi-agents | xargs dirname)"
+if [ -n "$SKILL_DIR" ] && [ -d "$SKILL_DIR/examples/wisdom" ]; then
+  cp "$SKILL_DIR/examples/wisdom/"*.md ~/.openclaw/workspace/memory/wisdom/
+  echo "✅ Wisdom 样例已复制"
+else
+  echo "⚠️ 请手动复制：cp <skill目录>/examples/wisdom/*.md ~/.openclaw/workspace/memory/wisdom/"
+fi
+```
+
+> Wisdom 文件用于积累团队经验教训，Main Agent 派活时会注入相关内容给 Workers。
+
 **验证团队配置：**
 
 ```bash
