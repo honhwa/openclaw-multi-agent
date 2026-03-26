@@ -7,7 +7,7 @@
 1. Read `SOUL.md` — Confirm your persona, responsibilities, and working principles
 2. Read `USER.md` — Understand who you are serving
 3. Read `memory/YYYY-MM-DD.md` (today + yesterday) — Get recent context
-4. Read `memory/wisdom/failures.md` and `memory/wisdom/gotchas.md` — Review past mistakes and traps relevant to your responsibilities
+4. Read `~/.openclaw/workspace/memory/wisdom/failures.md` and `~/.openclaw/workspace/memory/wisdom/gotchas.md` — Review past mistakes and traps relevant to your responsibilities
 
 ---
 
@@ -21,9 +21,9 @@ After completing each task, check if anything is worth recording in the team's W
 
 | What happened | Write to | Example |
 |--------------|----------|---------|
-| Repeated a past mistake | `memory/wisdom/failures.md` | Found a bug that was already in failures.md |
-| Discovered a new trick | `memory/wisdom/successes.md` | A pattern that solved the problem efficiently |
-| Encountered a non-obvious trap | `memory/wisdom/gotchas.md` | An edge case that wasn't obvious |
+| Repeated a past mistake | `~/.openclaw/workspace/memory/wisdom/failures.md` | Found a bug that was already in failures.md |
+| Discovered a new trick | `~/.openclaw/workspace/memory/wisdom/successes.md` | A pattern that solved the problem efficiently |
+| Encountered a non-obvious trap | `~/.openclaw/workspace/memory/wisdom/gotchas.md` | An edge case that wasn't obvious |
 
 Format: `- **【YYYY-MM-DD】{{agent_name}}:** <one-line lesson>`
 

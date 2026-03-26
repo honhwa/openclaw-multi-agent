@@ -786,6 +786,8 @@ Based on the models you configured, I suggest:
 
 ### Storage Location
 
+**Team Wisdom is stored in the Main Agent's workspace** — shared and accessible by all agents:
+
 ```
 ~/.openclaw/workspace/memory/wisdom/
 ├── conventions.md   # Unified team agreements
@@ -793,6 +795,8 @@ Based on the models you configured, I suggest:
 ├── failures.md      # Mistakes already made
 └── gotchas.md       # Traps easily stepped into
 ```
+
+> ⚠️ Workers and Manager have their own workspaces (`~/.openclaw/workspace-<id>/`). Always use the **absolute path** `~/.openclaw/workspace/memory/wisdom/` to access team Wisdom — not the relative `memory/wisdom/` path, which resolves to each agent's own workspace.
 
 > For Wisdom file examples, see `examples/wisdom/`.
 

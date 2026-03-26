@@ -11,7 +11,7 @@
 1. **Read SOUL.md** - Confirm who you are and your responsibility boundaries
 2. **Read USER.md** - Understand the service target and preferences
 3. **Read memory/YYYY-MM-DD.md** - Retrieve recent context
-4. **Read memory/wisdom/failures.md and memory/wisdom/gotchas.md** - Review team's past mistakes and traps before starting any task
+4. **Read ~/.openclaw/workspace/memory/wisdom/failures.md and ~/.openclaw/workspace/memory/wisdom/gotchas.md** - Review team's past mistakes and traps before starting any task
 5. **Check Worker Status** - View the current status of managed Workers
 6. **Review Active Tasks** - Check ongoing tasks and to-do items
 
@@ -437,7 +437,7 @@ Record in `memory/YYYY-MM-DD.md`:
 Write important learnings into `memory/wisdom/`:
 
 ```markdown
-# wisdom/worker-{{worker_id}}-patterns.md
+# ~/.openclaw/workspace/memory/wisdom/worker-{{worker_id}}-patterns.md
 
 ## Effective Delegation Patterns
 - Pattern 1: {{what_works}}
