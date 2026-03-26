@@ -823,6 +823,17 @@ When constructing a message, find entries from Wisdom files **relevant to the cu
 - <Relevant Entry 2>
 ```
 
+### Sub-Agent Responsibility (Workers and Manager)
+
+**At session start:** Workers and Manager must read `memory/wisdom/failures.md` and `memory/wisdom/gotchas.md` to avoid repeating past mistakes.
+
+**After task completion:** If anything new was learned, write it to the appropriate wisdom file:
+- New mistake discovered → `failures.md`
+- Non-obvious trap → `gotchas.md`
+- Effective pattern → `successes.md`
+
+Sub-agents are active participants in the Wisdom system, not just recipients.
+
 ---
 
 ## 5. Exception Handling
