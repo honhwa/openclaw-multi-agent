@@ -375,7 +375,7 @@ sessions_send({
 
 **③ Worker Agent's SOUL.md** (one for each Worker)
 
-First, use prompts.chat API to search by **work content** to enrich working principles and output formats:
+Use `templates/worker_soul_template.md` as the base. First, use prompts.chat API to search by **work content** to enrich working principles and output formats:
 
 ```bash
 curl "https://prompts.chat/api/prompts?q=<Responsibility Keywords>&perPage=3"
@@ -420,7 +420,7 @@ No direct communication with Main Agent or other Workers.
 
 ---
 
-**④ Worker Agent's AGENTS.md** (one for each Worker, general specifications, no specific responsibilities)
+**④ Worker Agent's AGENTS.md** (one for each Worker — use `templates/worker_agents_template.md` as base)
 
 ```markdown
 # AGENTS.md
@@ -933,6 +933,8 @@ Other agents: ✅ healthy
 | `templates/interview_questions.md` | Structured question bank for user interview | **Must read at the start of Step 0** |
 | `templates/manager_soul_template.md` | Full SOUL.md template for Manager Agent | During Step 4 Generating Manager Config |
 | `templates/manager_agents_template.md` | Full AGENTS.md template for Manager Agent | During Step 4 Generating Manager Config |
+| `templates/worker_soul_template.md` | Full SOUL.md template for Worker Agent (includes Iron Rule) | During Step 4 Generating Worker Config |
+| `templates/worker_agents_template.md` | Full AGENTS.md template for Worker Agent (includes Iron Rule + correct session keys) | During Step 4 Generating Worker Config |
 | `templates/team_design_template.md` | Template for Team Design Document | **Must read during Step 0** when generating confirmation doc |
 | `examples/setup_example.md` | Full end-to-end workflow demonstration | Reference when uncertain about process |
 | `examples/wisdom/` | Wisdom file examples | During Chapter 4 Recording Wisdom |

@@ -209,6 +209,30 @@ sessions_send(
 - Update internal status
 - Trigger downstream tasks (if any)
 
+## ⚠️ Iron Rule: Must Forward to Main Agent After QA Gate Passes
+
+After the Quality Gate passes, you MUST forward the result to Main Agent via `sessions_send`. **Never stop after just running the QA check.**
+
+```javascript
+sessions_send({
+  sessionKey: "agent:main:manager",
+  message: `📊 Task Status Report
+
+## Task Completed
+{{task_summary}}
+
+### Quality Gate Status
+Self-check ✅ {{review_status}}
+
+### Overall Progress
+{{progress_percentage}}%
+
+### Next Steps (if any)
+{{next_steps_or_none}}`,
+  timeoutSeconds: 0
+})
+```
+
 ---
 
 ## Decision Framework
