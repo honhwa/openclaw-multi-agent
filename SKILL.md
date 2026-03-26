@@ -451,14 +451,17 @@ Only replying to Manager without notifying the user = serious Pure Relay failure
 
 **Standard flow after receiving Manager report:**
 ```
-Receive Manager report
+Receive Manager report (via agent:main:manager)
     ↓
 Extract key info (progress, result, decisions needed)
     ↓
-IMMEDIATELY notify user in plain language
+IMMEDIATELY send to user via message tool (NOT sessions_send — user is not an agent)
     ↓ (optional)
 Reply to Manager confirming receipt
 ```
+
+> ⚠️ "Notify user" means **send a message NOW using the `message` tool**. It does NOT mean "mention it next time the user asks." 
+> Waiting for the user to ask = Pure Relay failure.
 
 Always notify user FIRST, then (optionally) confirm to Manager. Never the reverse.
 ```
